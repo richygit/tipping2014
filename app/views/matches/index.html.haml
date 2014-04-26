@@ -1,0 +1,13 @@
+%h1='Matches'
+
+- @matches.each do |match|
+  .match
+    .location
+      = match.location
+    .kickoff
+      = match.kickoff
+    %span.team1
+      = match.teams.first.name
+    vs.
+    %span.team2
+      = match.teams.last.name

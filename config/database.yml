@@ -1,0 +1,23 @@
+development: &development
+   adapter: mysql2
+   encoding: utf8
+   database: tipping_development
+   pool: 5
+   username: root
+   password:
+   socket: /tmp/mysql.sock
+
+test: &test
+   adapter: mysql2
+   encoding: utf8
+   database: tipping_test
+   pool: 5
+   username: root
+   password:
+   socket: /tmp/mysql.sock
+
+test_readonly:
+  <<: *test
+
+cucumber:
+  <<: *test
