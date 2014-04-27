@@ -1,3 +1,4 @@
 tmp
 log
+.rspec
 !Gemfile.lock
