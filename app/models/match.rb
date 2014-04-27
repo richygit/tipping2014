@@ -1,6 +1,11 @@
 class Match < ActiveRecord::Base
-  has_and_belongs_to_many :teams
-  attr_accessible :location, :kickoff
+  belongs_to :first_team, foreign_key: :team1_id, class_name: 'Team'
+  belongs_to :second_team, foreign_key: :team2_id, class_name: 'Team'
+  belongs_to :venue
 
-  scope :with_teams, -> { includes(:teams).order('matches.kickoff asc, teams.name asc') }
+  scope :with_teams_and_venues, -> { includes(:first_team).includes(:second_team).includes(:venue) }
+
+  def team1
+
+  end
 end

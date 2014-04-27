@@ -3,11 +3,19 @@
 - @matches.each do |match|
   .match
     .location
-      = match.location
+      = match.venue.name
     .kickoff
       = match.kickoff
-    %span.team1
-      = match.teams.first.name
+    - if match.first_team.blank?
+      Undecided
+    - else
+      %span.team1
+        = match.first_team.name
+
     vs.
-    %span.team2
-      = match.teams.last.name
+
+    - if match.second_team.blank?
+      Undecided
+    - else
+      %span.team2
+      = match.second_team.name

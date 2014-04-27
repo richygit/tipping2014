@@ -7,6 +7,7 @@ gem 'rails', '3.2.17'
 
 gem 'mysql2'
 gem 'haml-rails'
+gem 'seed_dump', '~> 0.5.3'
 
 
 # Gems used only for assets and not required
