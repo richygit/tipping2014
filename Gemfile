@@ -4,7 +4,7 @@ gem 'rails', '~> 4.1.0'
 
 gem 'mysql2'
 gem 'haml-rails'
-gem 'seed_dump'
+gem 'seed_dump', '~> 3.1.0'
 gem 'thin'
 
 # Gems used only for assets and not required
