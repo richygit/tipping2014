@@ -11,7 +11,7 @@ Group.create([
   { :name => "F" },
   { :name => "G" },
   { :name => "H" }
-], :without_protection => true )
+])
 
 
 
@@ -80,7 +80,7 @@ Match.create([
   { :stage => "SF", :venue_id => 12, :team1_id => nil, :team2_id => nil, :kickoff => "2014-07-09 17:00:00" },
   { :stage => "3", :venue_id => 2, :team1_id => nil, :team2_id => nil, :kickoff => "2014-07-12 17:00:00" },
   { :stage => "F", :venue_id => 10, :team1_id => nil, :team2_id => nil, :kickoff => "2014-07-13 17:00:00" }
-], :without_protection => true )
+])
 
 
 
@@ -117,7 +117,7 @@ Team.create([
   { :group_id => 8, :code => "DZA", :name => "Algeria" },
   { :group_id => 8, :code => "RUS", :name => "Russia" },
   { :group_id => 8, :code => "KOR", :name => "Korea" }
-], :without_protection => true )
+])
 
 
 
@@ -134,6 +134,6 @@ Venue.create([
   { :name => "Estadio do Maracana", :city => "Rio De Janeiro" },
   { :name => "Arena Fonte Nova", :city => "Salvador" },
   { :name => "Arena de Sao Paulo", :city => "Sao Paulo" }
-], :without_protection => true )
+])
 
 
