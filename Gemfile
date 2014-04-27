@@ -16,6 +16,8 @@ group :assets do
   gem 'uglifier', '>= 2.5.0'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -32,3 +34,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+ruby "2.1.1"
