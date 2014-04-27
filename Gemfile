@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'seed_dump', '~> 3.1.0'
 gem 'thin'
 gem 'protected_attributes'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.

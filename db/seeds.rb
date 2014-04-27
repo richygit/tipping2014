@@ -7,7 +7,8 @@ Group.create!([
   {id: 6, name: "F"},
   {id: 7, name: "G"},
   {id: 8, name: "H"}
-])
+], without_protection: true)
+
 Match.create!([
   {id: 1, kickoff: "2014-06-12 17:00:00", team1_id: 1, team2_id: 2, venue_id: 12, stage: "G"},
   {id: 2, kickoff: "2014-06-13 13:00:00", team1_id: 3, team2_id: 4, venue_id: 7, stage: "G"},
@@ -73,7 +74,8 @@ Match.create!([
   {id: 62, kickoff: "2014-07-09 17:00:00", team1_id: nil, team2_id: nil, venue_id: 12, stage: "SF"},
   {id: 63, kickoff: "2014-07-12 17:00:00", team1_id: nil, team2_id: nil, venue_id: 2, stage: "3"},
   {id: 64, kickoff: "2014-07-13 17:00:00", team1_id: nil, team2_id: nil, venue_id: 10, stage: "F"}
-])
+], without_protection: true)
+
 Team.create!([
   {id: 1, name: "Brazil", code: "BRA", group_id: 1},
   {id: 2, name: "Croatia", code: "HRV", group_id: 1},
@@ -171,7 +173,8 @@ Team.create!([
   {id: 94, name: "Algeria", code: "DZA", group_id: 8},
   {id: 95, name: "Russia", code: "RUS", group_id: 8},
   {id: 96, name: "Korea", code: "KOR", group_id: 8}
-])
+], without_protection: true)
+
 Venue.create!([
   {id: 1, city: "Belo Horizonte", name: "Estadio Mineirao"},
   {id: 2, city: "Brasilia", name: "Estadio Nacional"},
@@ -185,4 +188,4 @@ Venue.create!([
   {id: 10, city: "Rio De Janeiro", name: "Estadio do Maracana"},
   {id: 11, city: "Salvador", name: "Arena Fonte Nova"},
   {id: 12, city: "Sao Paulo", name: "Arena de Sao Paulo"}
-])
+], without_protection: true)
