@@ -5,19 +5,16 @@ gem 'rails', '~> 4.1.0'
 gem 'mysql2'
 gem 'haml-rails'
 gem 'seed_dump'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails', '~> 4.0.3'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-
-  gem 'uglifier', '>= 2.5.0'
-end
+gem 'sass-rails', '~> 4.0.3'
+gem 'coffee-rails', '~> 4.0.0'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'uglifier', '>= 2.5.0'
 
 gem 'rails_12factor', group: :production
-
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
