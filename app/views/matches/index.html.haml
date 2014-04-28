@@ -1,21 +1,27 @@
 %h1='Matches'
 
-- @matches.each do |match|
-  .match
-    .location
-      = match.venue.name
-    .kickoff
-      = match.kickoff
-    - if match.first_team.blank?
-      Undecided
-    - else
-      %span.team1
-        = match.first_team.name
-
-    vs.
-
-    - if match.second_team.blank?
-      Undecided
-    - else
-      %span.team2
-      = match.second_team.name
+.matches.container-fluid
+  - @matches.each do |match|
+    .match.row
+      .kickoff.col-xs-3.col-md-2
+        = match.kickoff.strftime('%a %d %b %y, %H:%M')
+      .location.col-xs-3.col-md-2
+        = match.venue.name
+      .teams.col-xs-3.col-md-8
+        - if match.first_team.blank?
+          Undecided
+        - else
+          %span.team1
+            = match.first_team.name
+            - if match.result
+              %span.score
+              = match.result.first_team_score
+        vs.
+        - if match.second_team.blank?
+          Undecided
+        - else
+          %span.team2
+          = match.second_team.name
+          - if match.result
+            %span.score
+            = match.result.second_team_score

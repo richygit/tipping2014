@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428114253) do
+ActiveRecord::Schema.define(version: 20140428134812) do
 
   create_table "groups", force: true do |t|
     t.string "name"
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20140428114253) do
 
   create_table "results", force: true do |t|
     t.integer "match_id"
-    t.integer "team1_score"
-    t.integer "team2_score"
+    t.integer "first_team_score"
+    t.integer "second_team_score"
+    t.boolean "is_draw"
+    t.integer "winner_team_id"
   end
 
   create_table "teams", force: true do |t|
