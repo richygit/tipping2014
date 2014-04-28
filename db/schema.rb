@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140428114253) do
   end
 
   create_table "results", force: true do |t|
-    t.integer "matches_id"
+    t.integer "match_id"
     t.integer "team1_score"
     t.integer "team2_score"
   end
