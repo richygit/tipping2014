@@ -9,11 +9,11 @@ gem 'thin'
 gem 'protected_attributes'
 gem 'devise'
 
+gem 'sass-rails', '~> 4.0.3'
 group :development, :test do
   gem 'rspec-rails'
   # Gems used only for assets and not required
   # in production environments by default.
-  gem 'sass-rails', '~> 4.0.3'
   gem 'coffee-rails', '~> 4.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 2.5.0'
