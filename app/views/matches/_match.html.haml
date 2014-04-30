@@ -8,6 +8,7 @@
       Undecided
     - else
       %span.team1
+        = flag_img(match.first_team.code)
         = match.first_team.name
         - if match.result
           %span.score
@@ -20,13 +21,14 @@
       Undecided
     - else
       %span.team2
-      = match.second_team.name
-      - if match.result
-        %span.score
-        = match.result.second_team_score
-      - else
-        %span.tip
-          = radio_button_tag 'match', 'team2'
+        = flag_img(match.second_team.code)
+        = match.second_team.name
+        - if match.result
+          %span.score
+          = match.result.second_team_score
+        - else
+          %span.tip
+            = radio_button_tag 'match', 'team2'
       %span.tip.draw
         = label_tag 'draw'
         = radio_button_tag 'match', 'draw'
