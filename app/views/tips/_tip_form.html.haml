@@ -1,8 +1,4 @@
-.match.row
-  .kickoff.col-xs-3.col-md-2
-    = match.kickoff.strftime('%a %d %b %y, %H:%M')
-  .location.col-xs-3.col-md-2
-    = match.venue.city
+= form_for(tip, remote: true) do |f|
   .teams.col-xs-3.col-md-8
     - if match.first_team.blank?
       Undecided
@@ -12,10 +8,10 @@
         = match.first_team.name
         - if match.result
           %span.score
-          = match.result.first_team_score
+            = match.result.first_team_score
         - else
           %span.tip
-            = radio_button_tag 'match', 'team1'
+            = f.radio_button :tip, match.first_team.id
     vs.
     - if match.second_team.blank?
       Undecided
@@ -25,10 +21,16 @@
         = match.second_team.name
         - if match.result
           %span.score
-          = match.result.second_team_score
+            = match.result.second_team_score
         - else
           %span.tip
-            = radio_button_tag 'match', 'team2'
+            = f.radio_button :tip, match.second_team.id
       %span.tip.draw
         = label_tag 'draw'
-        = radio_button_tag 'match', 'draw'
+        = f.radio_button :tip, Tip::DRAW
+:javascript
+  $(document).ready ->
+    $("#new_post").on("ajax:success", (e, data, status, xhr) ->
+      $("#new_post").append xhr.responseText
+    ).on "ajax:error", (e, xhr, status, error) ->
+      $("#new_post").append "<p>ERROR</p>"

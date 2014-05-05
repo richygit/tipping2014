@@ -1,0 +1,10 @@
+- match = tip.match
+.tip.row
+  .kickoff.col-xs-3.col-md-2
+    = match.kickoff.strftime('%a %d %b %y, %H:%M')
+  .location.col-xs-3.col-md-2
+    = match.venue.city
+  - if can_tip?(match)
+    = render partial: 'tip_form', locals: {tip: tip, match: match}
+  - else
+    = render partial: 'tip_item', locals: {tip: tip, match: match}
