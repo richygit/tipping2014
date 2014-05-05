@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.1.0'
 
 gem 'mysql2'
-gem 'haml-rails'
-gem 'coffee-rails'
+
+gem 'haml-rails', group: :assets
+gem 'coffee-rails', group: :assets
+
 gem 'seed_dump', '~> 3.1.0', group: :development
 gem 'thin'
 gem 'protected_attributes'
@@ -14,9 +16,6 @@ gem 'sass-rails', '~> 4.0.3'
 group :development, :test do
   gem 'pry-debugger'
   gem 'rspec-rails'
-  # Gems used only for assets and not required
-  # in production environments by default.
-  gem 'coffee-rails', '~> 4.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'uglifier', '>= 2.5.0'
   gem 'factory_girl_rails'
