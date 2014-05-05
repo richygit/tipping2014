@@ -4,6 +4,7 @@ gem 'rails', '~> 4.1.0'
 
 gem 'mysql2'
 gem 'haml-rails'
+gem 'coffee-rails'
 gem 'seed_dump', '~> 3.1.0', group: :development
 gem 'thin'
 gem 'protected_attributes'
