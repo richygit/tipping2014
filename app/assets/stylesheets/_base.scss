@@ -1,19 +1,65 @@
-.logo {
-  img {
-    height: 64px;
-    width: 90px;
-  }
-  .name {
-    font-family: 'Oswald', 'sans-serif';
-    font-size: 30px;
-    color: #191;
-    vertical-align: middle;
+.navbar-brand {
+  padding: 5px;
+  span {
+    color: #ddd;
+    font-size: 23px;
+    letter-spacing: -2px;
   }
 }
 
-.login {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  padding: 5px 10px 0 0;
+.content {
+  margin: 15px;
+}
+
+.kickoff, .location {
+  margin: 10px 0;
+}
+
+.location {
+  text-align: right;
+}
+
+.tip input[type=radio] {
+  display: none;
+}
+
+/* Media queries */
+@media (max-width: 767px) { 
+  html body.tipping div.content .verbose {
+    display: none;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  html body.tipping div.content .curt {
+    display: none;
+  }
+}
+
+.draw {
+  line-height: 32px;
+  vertical-align: bottom;
+  label {
+    margin: 0px;
+  }
+}
+
+.tip-btn {
+  display: inline-block;
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+.flag, .draw-icon, .vs {
+  display: inline;
+}
+
+/* override bootstrap */
+.tipping {
+  font-family: 'Arimo', sans-serif;
+  .navbar-inverse .navbar-nav>li>a {
+    color: #ddd;
+  }
+
 }

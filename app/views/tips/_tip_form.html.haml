@@ -1,10 +1,11 @@
 = form_for(tip, remote: true) do |f|
-  .teams.col-xs-3.col-md-8
+  .teams.col-xs-12
     - if match.first_team.blank?
       Undecided
     - else
-      %span.team1
-        = flag_img(match.first_team.code)
+      .tip-btn
+        .flag
+          = flag_img(match.first_team.code)
         = match.first_team.name
         - if match.result
           %span.score
@@ -12,12 +13,14 @@
         - else
           %span.tip
             = f.radio_button :tip, match.first_team.id
-    vs.
+    .vs.verbose
+      vs.
     - if match.second_team.blank?
       Undecided
     - else
-      %span.team2
-        = flag_img(match.second_team.code)
+      .tip-btn
+        .flag
+          = flag_img(match.second_team.code)
         = match.second_team.name
         - if match.result
           %span.score
@@ -25,6 +28,8 @@
         - else
           %span.tip
             = f.radio_button :tip, match.second_team.id
-      %span.tip.draw
+      .tip-btn.draw
+        .draw-icon
+          = icon('arrows-h')
         = label_tag 'draw'
         = f.radio_button :tip, Tip::DRAW
