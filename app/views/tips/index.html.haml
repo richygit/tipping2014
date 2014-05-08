@@ -1,4 +1,30 @@
 %h1='Matches'
 
-.tip.container-fluid
+.tip-container.container-fluid
   = render partial: 'tip', collection: @tips
+
+:javascript
+  $(function() {
+    $('.tip-container form').each(function(index, form) {
+      console.log('attaching ajax listener.');
+      $(form).on('ajax:before', function() {
+        $(form).append("<div class='loading'>loading..</div>");
+      });
+      $(form).on('ajax:success', function(data, status, xhr) {
+        $(form).effect('highlight');
+      });
+      $(form).on('ajax:failure', function() {
+      //reset to old value and animate
+      });
+      $(form).on('ajax:complete', function() {
+        $(form).find('.loading').remove();
+      });
+    });
+
+    $('.tip-container input[type=radio]').each(function(index, input) {
+      $(input).change(function() {
+        $(event.target).parents('form').trigger("submit.rails");
+      });
+    });
+
+  });

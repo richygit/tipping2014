@@ -28,9 +28,3 @@
       %span.tip.draw
         = label_tag 'draw'
         = f.radio_button :tip, Tip::DRAW
-:javascript
-  $(document).ready ->
-    $("#new_post").on("ajax:success", (e, data, status, xhr) ->
-      $("#new_post").append xhr.responseText
-    ).on "ajax:error", (e, xhr, status, error) ->
-      $("#new_post").append "<p>ERROR</p>"
