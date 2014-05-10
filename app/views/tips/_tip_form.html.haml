@@ -3,7 +3,7 @@
     - if match.first_team.blank?
       Undecided
     - else
-      .tip-btn.btn.btn-primary{class: btn_active_class(tip, match.first_team.id)}
+      .tip-btn.btn.btn-primary{class: tip_btn_class(tip, match.first_team.id)}
         = flag_img(match.first_team.code)
         = match.first_team.code
         - if match.result
@@ -17,7 +17,7 @@
     - if match.second_team.blank?
       Undecided
     - else
-      .tip-btn.btn.btn-primary{class: btn_active_class(tip, match.second_team.id)}
+      .tip-btn.btn.btn-primary{class: tip_btn_class(tip, match.second_team.id)}
         = flag_img(match.second_team.code)
         = match.second_team.code
         - if match.result
@@ -26,7 +26,7 @@
         - else
           .tip
             = f.radio_button :team_id, match.second_team.id
-      .tip-btn.draw.btn.btn-primary{class: btn_active_class(tip, Tip::DRAW)}
+      .tip-btn.draw.btn.btn-primary{class: tip_btn_class(tip, Tip::DRAW)}
         = icon('arrows-h')
         draw
         = f.radio_button :team_id, Tip::DRAW
