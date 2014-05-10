@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428134812) do
+ActiveRecord::Schema.define(version: 20140510150650) do
 
   create_table "groups", force: true do |t|
     t.string "name"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20140428134812) do
   create_table "tips", force: true do |t|
     t.integer  "user_id"
     t.integer  "match_id"
-    t.string   "tip"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

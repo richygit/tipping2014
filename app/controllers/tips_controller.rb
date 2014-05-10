@@ -7,11 +7,11 @@ class TipsController < ApplicationController
   
   def update
     @tip = Tip.find(params[:id])
-    tip_team = params[:tip][:tip].to_i
+    tip_team = params[:tip][:team_id].to_i
     if tip_team == Tip::DRAW
-      @tip.tip = Tip::DRAW
+      @tip.team_id = Tip::DRAW
     else
-      @tip.tip = Team.find(tip_team).id
+      @tip.team_id = Team.find(tip_team).id
     end
     @tip.save!
   end
