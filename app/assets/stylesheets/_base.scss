@@ -44,7 +44,7 @@
   padding: 5px;
 }
 
-.flag, .draw-icon, .vs {
+.vs {
   display: inline;
 }
 
@@ -57,9 +57,23 @@
   .btn-primary {
     background-color: #8A928F;
     border-color: #7A827F;
+    &:hover {
+      background-color: #7A807E;
+    }
+    &.active:hover {
+      background-color: #2A669B;
+    }
   }
   .draw {
     padding: 12px;
     height: 46px;
   }
+}
+
+.loading {
+  position: absolute;
+  height: 100%;
+  width: 90%;
+  background: asset-url('loading.gif') no-repeat center center;
+  background-color: rgba(255,255,255,0.7);
 }
