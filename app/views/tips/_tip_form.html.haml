@@ -3,7 +3,7 @@
     - if match.first_team.blank?
       Undecided
     - else
-      .tip-btn
+      .tip-btn.btn.btn-primary.btn-primary
         .flag
           = flag_img(match.first_team.code)
         = match.first_team.name
@@ -18,7 +18,7 @@
     - if match.second_team.blank?
       Undecided
     - else
-      .tip-btn
+      .tip-btn.btn.btn-primary
         .flag
           = flag_img(match.second_team.code)
         = match.second_team.name
@@ -28,8 +28,8 @@
         - else
           %span.tip
             = f.radio_button :tip, match.second_team.id
-      .tip-btn.draw
+      .tip-btn.draw.btn.btn-primary
         .draw-icon
           = icon('arrows-h')
-        = label_tag 'draw'
+        draw
         = f.radio_button :tip, Tip::DRAW
