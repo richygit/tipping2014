@@ -1,20 +1,26 @@
-.teams.col-xs-3.col-md-8
-  - if match.first_team.blank?
-    Undecided
-  - else
-    %span.team1
+- first_team_present = match.first_team.present?
+- second_team_present = match.second_team.present?
+.teams.col-xs-12
+  .tip-btn.btn.btn-primary.disabled{class: btn_active_class(tip, first_team_present ? match.first_team.id : nil)}
+    - if first_team_present 
       = flag_img(match.first_team.code)
-      = match.first_team.name
+      = match.first_team.code
       - if match.result
         %span.score
           = match.result.first_team_score
-  vs.
-  - if match.second_team.blank?
-    Undecided
-  - else
-    %span.team2
+    - else
+      ?
+  .vs.verbose
+    vs.
+  .tip-btn.btn.btn-primary.disabled{class: btn_active_class(tip, second_team_present ? match.second_team.id : nil)}
+    - if second_team_present
       = flag_img(match.second_team.code)
-      = match.second_team.name
+      = match.second_team.code
       - if match.result
         %span.score
           = match.result.second_team_score
+    - else
+      ?
+  .tip-btn.draw.btn.btn-primary.disabled{class: btn_active_class(tip, Tip::DRAW)}
+    = icon('arrows-h')
+    draw

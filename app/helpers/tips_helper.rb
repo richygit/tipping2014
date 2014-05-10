@@ -10,6 +10,7 @@ module TipsHelper
   end
 
   def btn_active_class(tip, team_id)
+    return '' if team_id == nil
     tip.team_id == team_id ? 'active' : ''
   end
 end

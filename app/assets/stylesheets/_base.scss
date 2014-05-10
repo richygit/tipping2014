@@ -57,16 +57,19 @@
   .btn-primary {
     background-color: #8A928F;
     border-color: #7A827F;
+    height: 46px;
     &:hover {
       background-color: #7A807E;
     }
     &.active:hover {
       background-color: #2A669B;
     }
+    &.disabled {
+      background-color: #A1A8A5;
+    }
   }
   .draw {
     padding: 12px;
-    height: 46px;
   }
 }
 

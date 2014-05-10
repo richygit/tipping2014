@@ -3,7 +3,7 @@
     - if match.first_team.blank?
       Undecided
     - else
-      .tip-btn.btn.btn-primary.btn-primary{class: btn_active_class(tip, match.first_team.id)}
+      .tip-btn.btn.btn-primary{class: btn_active_class(tip, match.first_team.id)}
         = flag_img(match.first_team.code)
         = match.first_team.code
         - if match.result
