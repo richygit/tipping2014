@@ -22,6 +22,9 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :test do
+  gem 'timecop'
+end
 
 gem 'rails_12factor', group: :production
 gem 'jquery-rails'

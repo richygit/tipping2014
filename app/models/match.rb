@@ -10,6 +10,6 @@ class Match < ActiveRecord::Base
                                                    .joins('LEFT OUTER JOIN tips ON matches.id = tips.match_id AND tips.user_id = ' + Match.sanitize(user.id)) }
 
   def not_started?
-    Time.now < kickoff
+    Time.now < (kickoff - 5.minutes)
   end
 end

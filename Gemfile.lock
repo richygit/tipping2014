@@ -159,6 +159,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.3)
     tilt (1.4.1)
+    timecop (0.7.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -190,4 +191,5 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   seed_dump (~> 3.1.0)
   thin
+  timecop
   uglifier (>= 2.5.0)
