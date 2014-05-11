@@ -1,7 +1,12 @@
 %h1='Matches'
 
 .tip-container.container-fluid
-  = render partial: 'tip', collection: @tips
+  - current_stage = nil
+  - @tips.each do |tip|
+    - if current_stage != tip.match.stage
+      - current_stage = tip.match.stage
+      .stage=stage(tip.match.stage)
+    = render partial: 'tip', locals: {tip: tip}
 
 :javascript
   $(function() {

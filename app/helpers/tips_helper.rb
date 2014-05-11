@@ -17,4 +17,21 @@ module TipsHelper
     classes.push('incorrect') if tip.result && tip.team_id != tip.result.winner_team_id && tip.team_id == team_id
     classes.join(' ')
   end
+
+  def stage(stage)
+    case stage
+    when 'G'
+      return 'Group'
+    when '16'
+      return 'Round of 16'
+    when 'QF'
+      return 'Quarter Finals'
+    when 'SF'
+      return 'Semi Finals'
+    when '3'
+      return 'Third Place'
+    when 'F'
+      return 'Final'
+    end
+  end
 end

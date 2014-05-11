@@ -7,5 +7,5 @@ class Tip < ActiveRecord::Base
 
   DRAW = -1
 
-  scope :with_teams_venues_results_tips, ->(user) { joins(:match).includes([:venue, :result]) }
+  scope :with_teams_venues_results_tips, ->(user) { joins(:match).includes([:venue, :result]).order('matches.kickoff ASC') }
 end
