@@ -1,3 +1,145 @@
-// Place all the styles related to the Tips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar-brand {
+  padding: 5px;
+  span {
+    color: #E8E0D6;
+    font-size: 23px;
+    letter-spacing: -2px;
+  }
+}
+
+.content {
+  margin: 15px;
+}
+
+.kickoff, .location {
+  margin: 10px 0;
+}
+
+.location {
+  text-align: right;
+}
+
+.tip input[type=radio] {
+  display: none;
+}
+
+/* Media queries */
+@media (max-width: 480px) { 
+  html body.tipping div.content .verbose {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) { 
+  html body.tipping div.content .curt {
+    display: none;
+  }
+  body {
+    background: asset-url('bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .content {
+    background: rgba(255,255,255,0.8);
+    margin: 43px;
+    padding: 14px;
+  }
+
+  .teams {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+    max-width: 730px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 980px) {
+  .content {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.tip-btn {
+  display: inline-block;
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+.vs {
+  display: inline;
+}
+
+/* override bootstrap */
+.tipping {
+  font-family: 'Arimo', sans-serif;
+  .navbar-inverse .navbar-nav>li>a {
+    color: #ddd;
+  }
+  .btn-primary {
+    background-color: #8A928F;
+    border-color: #7A827F;
+    height: 46px;
+    &:hover {
+      background-color: #7A807E;
+    }
+    &.active:hover {
+      background-color: #2A669B;
+    }
+    &.disabled {
+      background-color: #A1A8A5;
+      border-color: #7A827F;
+    }
+  }
+  .content {
+    .btn-primary.correct {
+      background-color: #AB7F7F;
+      border-color: #775959;
+    }
+
+    .btn-primary.incorrect {
+      background-color: #7FAB89;
+      border-color: #597760;
+    }
+  }
+  .draw {
+    padding: 12px;
+  }
+}
+
+.btn.undecided {
+  padding: 12px;
+}
+
+.loading {
+  position: absolute;
+  height: 100%;
+  width: 90%;
+  background: asset-url('loading.gif') no-repeat center center;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.navbar-right {
+  padding-right: 10px;
+}
+
+h1 {
+  color: #65AEBD;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.stage {
+  font-size: 23px;
+  color: #727976;
+  font-weight: bold;
+  margin: 15px 0px 7px -10px;
+}
