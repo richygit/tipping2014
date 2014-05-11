@@ -100,6 +100,17 @@
       border-color: #7A827F;
     }
   }
+  .content {
+    .btn-primary.correct {
+      background-color: #AB7F7F;
+      border-color: #775959;
+    }
+
+    .btn-primary.incorrect {
+      background-color: #7FAB89;
+      border-color: #597760;
+    }
+  }
   .draw {
     padding: 12px;
   }
