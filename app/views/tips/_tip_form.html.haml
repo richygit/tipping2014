@@ -1,11 +1,14 @@
 = form_for(tip, remote: true) do |f|
-  .teams.col-xs-12
+  .teams.col-xs-12.col-sm-8
     - if match.first_team.blank?
       Undecided
     - else
       .tip-btn.btn.btn-primary{class: tip_btn_class(tip, match.first_team.id)}
         = flag_img(match.first_team.code)
-        = match.first_team.code
+        %span.curt
+          = match.first_team.code
+        %span.verbose
+          = match.first_team.name
         - if match.result
           %span.score
             = match.result.first_team_score
@@ -19,7 +22,10 @@
     - else
       .tip-btn.btn.btn-primary{class: tip_btn_class(tip, match.second_team.id)}
         = flag_img(match.second_team.code)
-        = match.second_team.code
+        %span.curt
+          = match.second_team.code
+        %span.verbose
+          = match.second_team.name
         - if match.result
           %span.score
             = match.result.second_team_score
