@@ -9,6 +9,6 @@ module LeaderboardHelper
   end
 
   def leaderboard_class(row)
-    row[0] == current_user.id ? 'current-user' : ''
+    row[0] == current_user.id ? 'success' : ''
   end
 end
