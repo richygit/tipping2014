@@ -18,6 +18,8 @@ Tipping2014::Application.routes.draw do
 
   get 'leaderboard', to: 'leaderboard#index'
 
+  get "public/index"
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
