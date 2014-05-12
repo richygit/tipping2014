@@ -53,6 +53,7 @@ module Tipping2014
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    #
     #for chat, no longer required in rails 4
     config.middleware.delete "Rack::Lock"
   end
