@@ -22,7 +22,7 @@ class ChatController < WebsocketRails::BaseController
   end
   
   def client_connected
-    system_msg :new_message, "client #{client_id} connected"
+    #system_msg :new_message, "client #{client_id} connected"
   end
   
   def new_message

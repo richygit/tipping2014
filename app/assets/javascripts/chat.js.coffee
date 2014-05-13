@@ -1,6 +1,3 @@
-jQuery ->
-  window.chatController = new Chat.Controller($('#chat').data('uri'), true);
-
 window.Chat = {}
 
 class Chat.User
@@ -13,7 +10,7 @@ class Chat.Controller
       """
       <div class="message" >
         <label class="label label-info">
-          [#{message.received}] #{message.user_name}
+          #{message.user_name}
         </label>&nbsp;
         #{message.msg_body}
       </div>
@@ -26,16 +23,16 @@ class Chat.Controller
       userHtml = userHtml + "<li>#{user.user_name}</li>"
     $(userHtml)
 
-  constructor: (url,useWebSockets) ->
+  constructor: (url,useWebSockets, userName) ->
     @messageQueue = []
+    @userName = userName
     @dispatcher = new WebSocketRails(url,useWebSockets)
-    @dispatcher.on_open = @createGuestUser
+    @dispatcher.on_open = @createUser
     @bindEvents()
 
   bindEvents: =>
     @dispatcher.bind 'new_message', @newMessage
     @dispatcher.bind 'user_list', @updateUserList
-    $('input#user_name').on 'keyup', @updateUserInfo
     $('#send').on 'click', @sendMessage
     $('#message').keypress (e) -> $('#send').click() if e.keyCode == 13
 
@@ -47,16 +44,11 @@ class Chat.Controller
   sendMessage: (event) =>
     event.preventDefault()
     message = $('#message').val()
-    @dispatcher.trigger 'new_message', {user_name: @user.user_name, msg_body: message}
+    @dispatcher.trigger 'new_message', {user_name: @user.user_name, msg_body: message} if !!message.replace(/^\s+|\s+$/g, "")
     $('#message').val('')
 
   updateUserList: (userList) =>
     $('#user-list').html @userListTemplate(userList)
-
-  updateUserInfo: (event) =>
-    @user.user_name = $('input#user_name').val()
-    $('#username').html @user.user_name
-    @dispatcher.trigger 'change_username', @user.serialize()
 
   appendMessage: (message) ->
     messageTemplate = @template(message)
@@ -68,9 +60,6 @@ class Chat.Controller
     $('#chat div.messages:first').slideDown 100, ->
       $(this).remove()
 
-  createGuestUser: =>
-    rand_num = Math.floor(Math.random()*1000)
-    @user = new Chat.User("Guest_" + rand_num)
-    $('#username').html @user.user_name
-    $('input#user_name').val @user.user_name
+  createUser: =>
+    @user = new Chat.User(@userName)
     @dispatcher.trigger 'new_user', @user.serialize()

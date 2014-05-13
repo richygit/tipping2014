@@ -6,7 +6,7 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{href: "#"}
+    %a.navbar-brand{href: tips_path}
       %span
         = icon('globe')
         = icon('trophy')
@@ -18,7 +18,7 @@
       %li
         = link_to 'Leaderboard', leaderboard_path
       %li
-        %a{href: "#"} Chat
+        = link_to 'Chat', chat_path
     %ul.nav.navbar-nav.navbar-right
       %li
         - if current_user

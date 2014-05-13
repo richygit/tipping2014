@@ -1,0 +1,51 @@
+@media (min-width: 992px) {
+
+  .users-list {
+    float: right;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .chat-messages {
+    min-height: 150px;
+  }
+}
+
+.users-list .well {
+    background-color: rgba(196, 232, 229, 0.7);
+ }
+
+.well {
+  background-color: rgba(255,255,255,0.7);
+  background-image: none;
+  border: 0px;
+}
+
+.chat {
+  margin-bottom: 10px;
+}
+
+#message {
+  height: 34px;
+  border: 1px solid #bbb;
+  width: 84%;
+}
+
+#send {
+  width: 14%;
+}
+
+.label-info {
+  padding: 0.3em 1em .3em;
+}
+
+ul#user-list {
+  padding: 0px;
+
+  li {
+    list-style-type: none;
+    font-weight: bold;
+    padding: 0px;
+  }
+}

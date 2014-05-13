@@ -1,0 +1,17 @@
+%h1.chat Chat
+.row
+  .users-list.col-md-4
+    .well
+      %ul#user-list
+  .col-md-8
+    .chat-messages.well
+      #chat{"data-uri" => "#{request.host}:#{request.port}/websocket"}
+    .message-form
+      %input#message{type: "text"}
+      %button#send.btn Send
+
+
+:javascript
+  jQuery(function() {
+    return window.chatController = new Chat.Controller($('#chat').data('uri'), true, '#{current_user.name}');
+  });

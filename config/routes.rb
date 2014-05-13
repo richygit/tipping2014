@@ -18,7 +18,7 @@ Tipping2014::Application.routes.draw do
 
   get 'leaderboard', to: 'leaderboard#index'
 
-  get "public/index"
+  get "chat", to: 'public_chat#index'
 
   # Sample resource route with options:
   #   resources :products do
