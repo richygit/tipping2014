@@ -1,9 +1,13 @@
 @media (min-width: 992px) {
-
   .users-list {
     float: right;
+    max-height: 150px;
+    overflow: scroll;
   }
 
+  .chat-messages {
+    max-height: 300px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -12,9 +16,15 @@
   }
 }
 
+.chat-messages {
+  overflow: scroll;
+  max-height: 200px;
+}
+
 .users-list .well {
-    background-color: rgba(196, 232, 229, 0.7);
- }
+  background-color: rgba(196, 232, 229, 0.7);
+  padding: 10px;
+}
 
 .well {
   background-color: rgba(255,255,255,0.7);
@@ -42,7 +52,6 @@
 
 ul#user-list {
   padding: 0px;
-
   li {
     list-style-type: none;
     font-weight: bold;

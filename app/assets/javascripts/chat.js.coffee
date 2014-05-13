@@ -54,6 +54,7 @@ class Chat.Controller
     messageTemplate = @template(message)
     $('#chat').append messageTemplate
     messageTemplate.slideDown 140
+    $(".chat-messages").scrollTop($(".chat-messages")[0].scrollHeight);
 
   shiftMessageQueue: =>
     @messageQueue.shift()
