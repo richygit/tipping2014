@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def background_style
-    ['home', 'devise/sessions'].include?(params[:controller]) ? 'background-image: none' : ''
+  def include_wallpaper?
+    !['home', 'devise/sessions'].include?(params[:controller])
   end
 end
