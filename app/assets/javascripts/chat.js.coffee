@@ -26,7 +26,13 @@ class Chat.Controller
   constructor: (url,useWebSockets, userName) ->
     @messageQueue = []
     @userName = userName
-    @dispatcher = new WebSocketRails(url,useWebSockets)
+    @retries = 0
+    @url = url
+    @useWebSockets = useWebSockets
+    @connect()
+
+  connect: =>
+    @dispatcher = new WebSocketRails(@url,@useWebSockets)
     @dispatcher.on_open = @createUser
     @bindEvents()
 
@@ -44,8 +50,17 @@ class Chat.Controller
   sendMessage: (event) =>
     event.preventDefault()
     message = $('#message').val()
-    @dispatcher.trigger 'new_message', {user_name: @user.user_name, msg_body: message} if !!message.replace(/^\s+|\s+$/g, "")
+    @dispatcher.trigger 'new_message', {user_name: @user.user_name, msg_body: message}, @success, @failure if !!message.replace(/^\s+|\s+$/g, "")
     $('#message').val('')
+
+  success: (response) =>
+    @retries = 0
+
+  failure: (response) =>
+    console.log("Failure: " + response.message)
+    if @retries < 2
+      @connect()
+      @retries = @retries + 1
 
   updateUserList: (userList) =>
     $('#user-list').html @userListTemplate(userList)
