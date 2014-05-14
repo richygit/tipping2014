@@ -34,11 +34,6 @@ class ChatController < WebsocketRails::BaseController
     broadcast_user_list
   end
   
-  def change_username
-    connection_store[:user][:user_name] = sanitize(message[:user_name])
-    broadcast_user_list
-  end
-  
   def delete_user
     connection_store[:user] = nil
     system_msg "client #{client_id} disconnected"
