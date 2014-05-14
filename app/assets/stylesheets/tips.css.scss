@@ -96,6 +96,10 @@
       background-color: #A1A8A5;
       border-color: #7A827F;
     }
+    &.disabled.active {
+      background-color: #618EB6;
+      border-color: #3A79B0;
+    }
   }
   .content {
     .btn-primary.correct {
@@ -133,6 +137,7 @@ h1 {
   color: #65AEBD;
   margin-bottom: 0px;
 }
+
 .stage {
   font-size: 23px;
   color: #727976;

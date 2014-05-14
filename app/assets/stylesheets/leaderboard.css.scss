@@ -1,3 +1,7 @@
 .leaderboard {
   margin-bottom: 10px;
 }
+
+.table-striped tr:nth-child(even) td {
+  background-color: #C4E8E5;
+}
