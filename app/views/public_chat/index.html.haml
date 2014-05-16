@@ -13,5 +13,5 @@
 
 :javascript
   jQuery(function() {
-    return window.chatController = new Chat.Controller($('#chat').data('uri'), true, '#{current_user.name}');
+    return window.chatController = new Chat.Controller($('#chat').data('uri'), true, '#{current_user.name}', '#{current_user.email}');
   });

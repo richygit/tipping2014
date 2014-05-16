@@ -1,8 +1,8 @@
 window.Chat = {}
 
 class Chat.User
-  constructor: (@user_name) ->
-  serialize: => { user_name: @user_name }
+  constructor: (@user_name, @email) ->
+  serialize: => { user_name: @user_name, email: @email }
 
 class Chat.Controller
   template: (message) ->
@@ -23,9 +23,10 @@ class Chat.Controller
       userHtml = userHtml + "<li>#{user.user_name}</li>"
     $(userHtml)
 
-  constructor: (url,useWebSockets, userName) ->
+  constructor: (url,useWebSockets, userName, email) ->
     @messageQueue = []
     @userName = userName
+    @email = email
     @retries = 0
     @url = url
     @useWebSockets = useWebSockets
@@ -34,11 +35,13 @@ class Chat.Controller
   connect: =>
     @dispatcher = new WebSocketRails(@url,@useWebSockets)
     @dispatcher.on_open = @createUser
+    @msgLogChannel = @dispatcher.subscribe(@email);
     @bindEvents()
 
   bindEvents: =>
     @dispatcher.bind 'new_message', @newMessage
     @dispatcher.bind 'user_list', @updateUserList
+    @msgLogChannel.bind 'msg_log', @newMessage
     $('#send').on 'click', @sendMessage
     $('#message').keypress (e) -> $('#send').click() if e.keyCode == 13
 
@@ -77,5 +80,5 @@ class Chat.Controller
       $(this).remove()
 
   createUser: =>
-    @user = new Chat.User(@userName)
+    @user = new Chat.User(@userName, @email)
     @dispatcher.trigger 'new_user', @user.serialize()
