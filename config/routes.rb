@@ -1,5 +1,4 @@
 Tipping2014::Application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,6 +13,8 @@ Tipping2014::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  devise_for :users
+
   resources :tips
   namespace :admin do
     resources :results
@@ -21,8 +22,8 @@ Tipping2014::Application.routes.draw do
   end
 
   get 'leaderboard', to: 'leaderboard#index'
-
   get "chat", to: 'public_chat#index'
+  post 'passwords/email_password_reset'
 
   # Sample resource route with options:
   #   resources :products do

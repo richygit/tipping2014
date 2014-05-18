@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :tips
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable, :recoverable
 
   after_create :init_tips
   

@@ -1,0 +1,17 @@
+= form_tag session_path(:user) do
+  %div
+    = label_tag 'Email'
+    %br
+    = text_field_tag 'user[email]'
+
+  %div
+    = label_tag 'Password'
+    %br
+    = password_field_tag 'user[password]'
+  = check_box_tag 'user[remember_me]'
+  = label_tag 'user[remember_me]', 'Remember me'
+  %div
+    %button Sign in
+  %br
+  .forgot
+  = link_to "Forgot password", new_user_password_path
