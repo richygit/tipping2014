@@ -1,0 +1,12 @@
+= form_for [:admin, @user] do |f|
+  .email
+    = label_tag 'Email*'
+    = f.text_field :email
+  .name
+    = label_tag 'Name'
+    = f.text_field :name
+  .from
+    = label_tag 'From'
+    = f.text_field :from
+  = f.submit
+

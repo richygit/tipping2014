@@ -19,6 +19,11 @@
         = link_to 'Leaderboard', leaderboard_path
       %li
         = link_to 'Chat', chat_path
+      - if current_user && current_user.is_admin?
+        %li
+          = link_to 'Results', admin_results_path
+        %li
+          = link_to 'Users', admin_users_path
     %ul.nav.navbar-nav.navbar-right
       %li
         - if current_user

@@ -1,0 +1,17 @@
+%h1
+  Users
+
+= link_to 'Create User', new_admin_user_path, {class: 'btn btn-primary user-create-btn'}
+
+%table.table.users-table
+  %tr
+    %th="Email"
+    %th="Name"
+    %th="Referred From"
+    %th="Edit"
+  - @users.each do |user|
+    %tr
+      %td=user.email
+      %td=user.name
+      %td=user.from
+      %td=link_to 'Edit', edit_admin_user_path(user)
