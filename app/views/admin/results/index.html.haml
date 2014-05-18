@@ -1,0 +1,26 @@
+%h1
+  Results
+
+%table.results-table.table
+  %tr
+    %th="Match ID"
+    %th="Team 1"
+    %th="Score"
+    %th="Team 2"
+    %th="Score"
+    %th="Edit"
+
+  - @results.each do |result|
+    %tr
+      %td
+        = result.match.id
+      %td
+        = team_name(result.match.first_team)
+      %td
+        = result.first_team_score
+      %td
+        = team_name(result.match.second_team)
+      %td
+        = result.second_team_score
+      %td
+        = link_to 'Edit', edit_admin_result_path(result)

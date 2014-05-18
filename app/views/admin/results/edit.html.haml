@@ -1,0 +1,23 @@
+.result-form
+  = form_for @result, url: admin_result_path do |f|
+    .first-team
+      .name
+        = "Team 1: #{team_name(@result.match.first_team)}"
+      = f.fields_for :match do |match_form|
+        = label_tag 'First Team ID'
+        = match_form.text_field :team1_id
+      .score
+        = label_tag 'Score'
+        = f.text_field :first_team_score
+    .second-team
+      .name
+        = "Team 2: #{team_name(@result.match.second_team)}"
+      = f.fields_for :match do |match_form|
+        = label_tag 'Second Team ID'
+        = match_form.text_field :team2_id
+      .score
+        = label_tag 'Score'
+        = f.text_field :second_team_score
+    = f.submit
+
+= render partial: 'admin/teams/index'

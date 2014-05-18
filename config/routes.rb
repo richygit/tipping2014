@@ -15,6 +15,9 @@ Tipping2014::Application.routes.draw do
   #   resources :products
 
   resources :tips
+  namespace :admin do
+    resources :results
+  end
 
   get 'leaderboard', to: 'leaderboard#index'
 

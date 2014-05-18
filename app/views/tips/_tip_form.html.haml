@@ -9,7 +9,7 @@
           = match.first_team.code
         %span.verbose
           = match.first_team.name
-        - if match.result
+        - if match.result && match.result.first_team_score
           %span.score
             = match.result.first_team_score
         - else
@@ -26,7 +26,7 @@
           = match.second_team.code
         %span.verbose
           = match.second_team.name
-        - if match.result
+        - if match.result && match.result.second_team_score
           %span.score
             = match.result.second_team_score
         - else

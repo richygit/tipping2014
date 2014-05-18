@@ -1,0 +1,12 @@
+%h2="Teams"
+
+%table.team-list.table
+  %tr
+    %th="Name"
+    %th="Flag"
+    %th="ID"
+  - @teams.each do |team|
+    %tr
+      %td=team.name
+      %td=flag_img(team.code)
+      %td=team.id

@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'coffee-rails'
 gem 'font-awesome-sass'
 gem 'websocket-rails'
+gem 'cancan'
 
 gem 'seed_dump', '~> 3.1.0', group: :development
 gem 'thin'
