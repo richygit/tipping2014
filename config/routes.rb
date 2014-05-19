@@ -13,7 +13,7 @@ Tipping2014::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :tips
   namespace :admin do
