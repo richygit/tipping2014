@@ -33,8 +33,13 @@ class Admin::UsersController < ApplicationController
     @user.email = params[:user][:email]
     @user.name = params[:user][:name]
     @user.from = params[:user][:from]
-    @user.save!
-    redirect_to admin_users_path
+    if @user.save
+      flash[:notice] = "User updated"
+      redirect_to admin_users_path
+    else
+      flash[:error] = "Error updating user"
+      render edit_admin_user_path
+    end
   end
 
   def destroy
