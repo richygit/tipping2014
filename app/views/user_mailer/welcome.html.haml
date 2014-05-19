@@ -1,14 +1,14 @@
 %p
-  %b
-    Welcome to tipping for the 2014 World Cup in Brazil!
+  Welcome to tipping 2014.
 %p
   Your login details are as follows:
   %br
   Login: #{@user.email}
   %br
   Password: #{@user.password}
-  %br
-  Site: #{link_to 'Tipping 2014', root_url}
+
+%p
+  You can log in here: #{link_to 'Tipping 2014', root_url}
 %p
   %b
     We highly recommend you change your password #{link_to 'here', new_user_password_url}.
