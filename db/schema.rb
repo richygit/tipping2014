@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518114725) do
+ActiveRecord::Schema.define(version: 20140519121718) do
 
   create_table "groups", force: true do |t|
     t.string "name"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20140518114725) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "stage"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "msg_body"
+    t.string   "from"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "results", force: true do |t|
