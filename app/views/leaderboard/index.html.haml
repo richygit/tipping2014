@@ -10,5 +10,4 @@
   - @leaders.each do |row|
     - rank = calculate_rank(previous_score, row[2], rank)
     = render partial: 'leader', locals: {leader: row, rank: rank}
-    - rank = rank + 1 if !previous_score.nil? && row[2] == previous_score
     - previous_score = row[2]
