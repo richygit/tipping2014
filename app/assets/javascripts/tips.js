@@ -8,8 +8,9 @@ function configure_tips() {
     $(form).on('ajax:success', function(data, status, xhr) {
       console.log("success");
     });
-    $(form).on('ajax:failure', function() {
+    $(form).on('ajax:error', function() {
       console.log("failure");
+      $('body').prepend($("<div class='alert alert-danger'>Tip not recorded. An error has occurred.</div>"));
       //reset to old value and animate
     });
     $(form).on('ajax:complete', function() {
