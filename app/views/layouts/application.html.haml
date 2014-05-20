@@ -11,10 +11,15 @@
   %link{href:'http://fonts.googleapis.com/css?family=Arimo:400,700',rel:'stylesheet',type:'text/css'}
 %body.tipping
   = render partial: 'layouts/header'
-  %p.notice
-    = notice
-  %p.alert
-    = alert
+  - if notice || alert
+    - if notice
+      %p.alert.alert-info
+        = notice
+    - if alert
+      %p.alert.alert-danger
+        = alert
+  - else
+    .nav-buffer
   .content
     = yield
   = render partial: 'layouts/footer'

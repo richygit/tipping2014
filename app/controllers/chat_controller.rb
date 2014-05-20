@@ -26,10 +26,10 @@ class ChatController < WebsocketRails::BaseController
   end
   
   def add_msg(msg)
-    msg_log = controller_store[:msg_log] || []
-    msg_log << {user_name: connection_store[:user][:user_name], received: Time.now.to_s(:short), msg_body: msg }
-    msg_log.shift if msg_log.length > 15
-    controller_store[:msg_log] = msg_log
+    message = Message.new
+    message.msg_body = msg
+    message.from = connection_store[:user][:user_name]
+    message.save!
   end
 
   def new_message
@@ -56,9 +56,9 @@ class ChatController < WebsocketRails::BaseController
   end
 
   def send_msg_log(email)
-    msg_log = controller_store[:msg_log] || []
-    msg_log.each do |msg|
-      WebsocketRails[email].trigger(:msg_log, {user_name: msg[:user_name], received: msg[:received], msg_body: msg[:msg_body]})
+    msgs = Message.latest
+    msgs.reverse.each do |msg|
+      WebsocketRails[email].trigger(:msg_log, {user_name: msg.from, received: msg.created_at.to_s(:short), msg_body: msg.msg_body})
     end
   end
 end
