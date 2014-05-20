@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'font-awesome-sass'
 gem 'websocket-rails'
 gem 'cancan'
+gem 'newrelic_rpm'
 
 gem 'seed_dump', '~> 3.1.0', group: :development
 gem 'thin'
