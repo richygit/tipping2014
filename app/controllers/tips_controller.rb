@@ -8,7 +8,7 @@ class TipsController < ApplicationController
   def update
     @tip = Tip.find(params[:id])
     raise 'Bad tip' unless @tip.user.id == current_user.id
-    raise 'Too late to tip' if Time.now >= (@tip.match.kickoff - 5.minutes) || @tip.result.present?
+    raise 'Too late to tip' if Time.now >= (@tip.match.kickoff - 5.minutes) || @tip.result.first_team_score || @tip.result.second_team_score || @tip.result.winner_team_id
     tip_team = params[:tip][:team_id].to_i
     if tip_team == Tip::DRAW
       @tip.team_id = Tip::DRAW
