@@ -21,7 +21,7 @@ function configure_tips() {
   });
 
   $('.tip-container .btn-primary').each(function(index, input) {
-    $(input).click(function() {
+    $(input).click(function(event) {
       var selected = $(event.target).parents("form").find("input[type=radio]:checked").val();
       var intended = $(event.target).closest(".btn-primary").find("input[type=radio]").val();
       if(selected != intended) {
