@@ -27,6 +27,7 @@
           = match.result.second_team_score
     - else
       ?
-  .tip-btn.draw.btn.btn-primary.disabled{class: tip_btn_class(tip, Tip::DRAW)}
-    = icon('arrows-h')
-    draw
+  - unless match.is_knockout?
+    .tip-btn.draw.btn.btn-primary.disabled{class: tip_btn_class(tip, Tip::DRAW)}
+      = icon('arrows-h')
+      draw

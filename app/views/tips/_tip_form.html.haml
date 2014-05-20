@@ -32,7 +32,8 @@
         - else
           .tip
             = f.radio_button :team_id, match.second_team.id
-      .tip-btn.draw.btn.btn-primary{class: tip_btn_class(tip, Tip::DRAW)}
-        = icon('arrows-h')
-        draw
-        = f.radio_button :team_id, Tip::DRAW
+      - unless match.is_knockout?
+        .tip-btn.draw.btn.btn-primary{class: tip_btn_class(tip, Tip::DRAW)}
+          = icon('arrows-h')
+          draw
+          = f.radio_button :team_id, Tip::DRAW

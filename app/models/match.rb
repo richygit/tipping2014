@@ -12,4 +12,8 @@ class Match < ActiveRecord::Base
   def not_started?
     Time.now < (kickoff - 5.minutes)
   end
+
+  def is_knockout?
+    self.stage != 'G'
+  end
 end
