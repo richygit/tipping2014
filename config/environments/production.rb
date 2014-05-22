@@ -77,4 +77,11 @@ Tipping2014::Application.configure do
        :password => "335qmllmese7"
   }
   
+  Tipping2014::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[tipping2014] ",
+    :sender_address => %{"tipping2014" <tipping2014-errors@tipping2014.herokuapp.com>},
+    :exception_recipients => %w{tipping2014info@gmail.com}
+  }
+
 end
