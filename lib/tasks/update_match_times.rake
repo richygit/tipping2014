@@ -2,8 +2,8 @@
 task :update_match_times => :environment do
 
   updated_times = [
-{id: 1,  kickoff: "2014-04-12 20:00:00"},
-{id: 2,  kickoff: "2014-04-13 16:00:00"},
+{id: 1,  kickoff: "2014-06-12 20:00:00"},
+{id: 2,  kickoff: "2014-06-13 16:00:00"},
 {id: 3,  kickoff: "2014-06-13 19:00:00"},
 {id: 4,  kickoff: "2014-06-13 22:00:00"},
 {id: 5,  kickoff: "2014-06-14 16:00:00"},
