@@ -10,14 +10,27 @@ describe Admin::ResultsController do
     it "should update the winner and scores" do
       match = create(:match)
       second_team = match.second_team
-      result = create(:result, match: match)
+      result = create(:result, match: match, winner_team_id: nil)
       params = {id: result.id, result: {match_attributes: {team1_id: match.first_team.id, team2_id: match.second_team.id}, first_team_score: 0, second_team_score: 2 }}
       patch :update, params
 
       result = Result.find result.id
       result.first_team_score.should == 0
       result.second_team_score.should == 2
-      result.winner_team_id = second_team.id
+      result.winner_team_id.should == second_team.id
+    end
+    
+    it "should not set a winner when it's a draw" do
+      match = create(:match)
+      second_team = match.second_team
+      result = create(:result, match: match, winner_team_id: nil)
+      params = {id: result.id, result: {match_attributes: {team1_id: match.first_team.id, team2_id: match.second_team.id}, first_team_score: 0, second_team_score: 0 }}
+      patch :update, params
+
+      result = Result.find result.id
+      result.first_team_score.should == 0
+      result.second_team_score.should == 0
+      result.winner_team_id.should be_nil
     end
 
     it "should set the teams for the match" do 
