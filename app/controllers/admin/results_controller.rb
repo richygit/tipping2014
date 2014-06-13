@@ -19,7 +19,7 @@ class Admin::ResultsController < ApplicationController
     elsif second_team_score > first_team_score
       params[:result][:match_attributes][:team2_id]
     else
-      nil
+      Tip::DRAW
     end
   end
   private :winner_team

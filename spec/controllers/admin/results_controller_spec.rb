@@ -20,7 +20,7 @@ describe Admin::ResultsController do
       result.winner_team_id.should == second_team.id
     end
     
-    it "should not set a winner when it's a draw" do
+    it "should set winner to 'draw' when scores are even" do
       match = create(:match)
       second_team = match.second_team
       result = create(:result, match: match, winner_team_id: nil)
@@ -30,7 +30,7 @@ describe Admin::ResultsController do
       result = Result.find result.id
       result.first_team_score.should == 0
       result.second_team_score.should == 0
-      result.winner_team_id.should be_nil
+      result.winner_team_id.should == Tip::DRAW
     end
 
     it "should set the teams for the match" do 
