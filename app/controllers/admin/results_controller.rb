@@ -12,7 +12,7 @@ class Admin::ResultsController < ApplicationController
   def winner_team(params)
     first_team_score = params[:result][:first_team_score]
     second_team_score = params[:result][:second_team_score]
-    return nil if first_team_score.nil? || second_team_score.nil?
+    return nil if first_team_score.blank? || second_team_score.blank?
 
     if first_team_score > second_team_score
       params[:result][:match_attributes][:team1_id]
@@ -31,7 +31,7 @@ class Admin::ResultsController < ApplicationController
     match.team2_id = params[:result][:match_attributes][:team2_id]
     result.first_team_score = params[:result][:first_team_score]
     result.second_team_score = params[:result][:second_team_score]
-    result.winner_team_id = winner_team(params)
+    result.winner_team_id = winner_team(params) if match.team1_id && match.team2_id
     result.save!
     redirect_to admin_results_path
   end

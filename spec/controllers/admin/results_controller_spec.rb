@@ -22,7 +22,6 @@ describe Admin::ResultsController do
     
     it "should set winner to 'draw' when scores are even" do
       match = create(:match)
-      second_team = match.second_team
       result = create(:result, match: match, winner_team_id: nil)
       params = {id: result.id, result: {match_attributes: {team1_id: match.first_team.id, team2_id: match.second_team.id}, first_team_score: 0, second_team_score: 0 }}
       patch :update, params
@@ -45,6 +44,21 @@ describe Admin::ResultsController do
       match = Match.find match.id
       match.first_team.should == first_team
       match.second_team.should == second_team
+      result.winner_team_id.should be_nil
+    end
+
+    it "should not set the winner if a team has not been set" do
+      match = create(:match, first_team: nil, second_team: nil)
+      first_team = create(:team)
+      result = create(:result, match: match, winner_team_id: nil)
+      params = {id: result.id, result: {match_attributes: {team1_id: first_team.id, team2_id: nil}, first_team_score: '', second_team_score: '' }}
+      patch :update, params
+
+      result = Result.find result.id
+      match = Match.find match.id
+      match.first_team.should == first_team
+      result.reload
+      match.reload
       result.winner_team_id.should be_nil
     end
   end
